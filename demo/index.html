@@ -19,8 +19,9 @@
   --ok:#4F8A62; --ok-wash:#E1EEE4; --warn:#B57A22; --warn-wash:#F6EAD5;
   --bad:#B14B45; --bad-wash:#F5DEDC; --info:#4E6A9E; --info-wash:#E0E7F3;
   --line-green:#06C755;
-  --serif:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
-  --sans:"Jost","Noto Sans Thai","Helvetica Neue",Arial,sans-serif;
+  --th-head:"Trirong"; --th-body:"Anuphan";
+  --serif:"Bodoni Moda",var(--th-head),"Didot","Bodoni 72",Georgia,serif;
+  --sans:"Jost",var(--th-body),"Noto Sans Thai","Helvetica Neue",Arial,sans-serif;
   --gut:clamp(16px,5vw,72px);
   --ease:cubic-bezier(.2,.7,.2,1);
   color-scheme:light;
@@ -48,7 +49,7 @@ p{margin:0}
 .ph img{width:100%;height:100%;object-fit:cover}
 
 /* Logo (wordmark placeholder — swap for the official file) */
-.logo{font-family:var(--serif);font-size:26px;letter-spacing:-.01em;text-decoration:none;display:inline-flex;align-items:baseline;line-height:1}
+.logo{font-family:"Bodoni Moda","Didot",Georgia,serif;font-size:26px;letter-spacing:-.01em;text-decoration:none;display:inline-flex;align-items:baseline;line-height:1}
 .logo i{display:inline-block;width:.24em;height:.24em;border-radius:50%;background:var(--pink);margin-left:.06em}
 
 /* Buttons */
@@ -196,6 +197,27 @@ p{margin:0}
 .btn-line:hover{background:#05b04b}
 @media (max-width:700px){.modal{grid-template-columns:1fr}.modal .ph{min-height:160px}}
 
+/* ============ Thai typography ============ */
+html[lang=th]{--serif:var(--th-head),"Bodoni Moda",Georgia,serif;--sans:var(--th-body),"Jost",Arial,sans-serif}
+html[lang=th] body{line-height:1.75}
+html[lang=th] em{font-style:normal}
+html[lang=th] h1,html[lang=th] h2,html[lang=th] h3,html[lang=th] h4,html[lang=th] h5{line-height:1.35!important;letter-spacing:0}
+html[lang=th] .hero h1{font-size:clamp(40px,6.2vw,92px);line-height:1.2!important}
+html[lang=th] .intro h2{font-size:clamp(26px,3.2vw,44px)}
+html[lang=th] :is(.eyebrow,.btn,.link,.nav-links button,.fld label,.fld .lbl,.tabbar button,.rich button,th,.tier .per,.pill,.jstep h4,.qa button,.seg button,.backlink,.side .sub,.flex-btn,.house .cat,.plist li b,.vch .r,.dates button,.dsec h6,.demo-note b,.qrfull small,.mcard .nm,.mcard .no,.side .role label){letter-spacing:.03em}
+html[lang=th] .step .n,html[lang=th] .jstep .k,html[lang=th] .tier h3,html[lang=th] .tchip,html[lang=th] .mcard .tn{font-family:"Bodoni Moda",Georgia,serif}
+.fontpop{position:fixed;z-index:92;left:50%;transform:translateX(-50%);bottom:calc(70px + env(safe-area-inset-bottom,0px));width:min(420px,calc(100vw - 24px));max-height:min(70vh,560px);overflow-y:auto;background:var(--bone);color:var(--text-l);border:1px solid var(--line-l);box-shadow:0 30px 80px rgba(0,0,0,.35);padding:18px;display:grid;gap:10px;animation:rise .3s var(--ease)}
+@media (min-width:981px){.fontpop{left:20px;transform:none}}
+.fontpop .hd{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.fontpop .hd b{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;font-size:20px}
+.fontpop .hd small{color:var(--mute-l);font-size:12px}
+.fopt{display:grid;gap:4px;text-align:left;background:#fff;border:1px solid var(--line-l);padding:12px 14px}
+.fopt.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.fopt .n{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink-ink);display:flex;justify-content:space-between;gap:8px}
+.fopt .h{font-size:24px;line-height:1.35}
+.fopt .b{font-size:14px;color:var(--mute-l);line-height:1.6}
+.nav .lang{background:none;border:1px solid rgba(242,234,231,.35);color:var(--text-d);border-radius:30px;padding:6px 11px;font-size:11px;letter-spacing:.08em}
+
 /* ============ Demo bar ============ */
 .demobar{position:fixed;z-index:90;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:2px;background:rgba(13,11,12,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line-d);border-radius:40px;padding:5px;color:var(--text-d);max-width:calc(100vw - 24px);overflow-x:auto;scrollbar-width:none}
 .demobar::-webkit-scrollbar{display:none}
@@ -253,7 +275,7 @@ p{margin:0}
 .lmsg.me{align-self:flex-end;flex-direction:row-reverse}
 .lav{width:34px;height:34px;border-radius:50%;background:var(--ink);flex:none;display:grid;place-items:center;align-self:flex-start}
 .lav .logo{font-size:10px;color:#fff}
-.lbub{background:#fff;border-radius:18px;padding:9px 13px;font-size:14px;line-height:1.5;white-space:pre-line;font-family:"Noto Sans Thai",var(--sans);font-weight:400}
+.lbub{background:#fff;border-radius:18px;padding:9px 13px;font-size:14px;line-height:1.5;white-space:pre-line;font-family:var(--sans);font-weight:400}
 .lmsg.me .lbub{background:#86E27F}
 .ltime{font-size:10px;color:rgba(0,0,0,.45);white-space:nowrap}
 .flex{background:#fff;border-radius:18px;overflow:hidden;width:250px}
@@ -594,6 +616,7 @@ td.r,th.r{text-align:right}
 <div id="overlay"></div>
 <nav class="demobar" id="demobar" aria-label="Demo navigation"></nav>
 <div id="ctoast"></div>
+<div id="fontpop"></div>
 
 <script>
 /* =========================================================
@@ -603,26 +626,31 @@ td.r,th.r{text-align:right}
            #admin (Concierge & Partner booking console)
    ========================================================= */
 
-/* ---------- Stock photography (Unsplash, hotlinked) ---------- */
-const IMG = {
-  hero:'photo-1566073771259-6a8506099945',
-  stay:'photo-1582719478250-c89cadb08f67',
-  dine:'photo-1414235077428-338989a2e8c0',
-  restore:'photo-1540555700478-4be289fbecef',
-  mcp:'photo-1542314831-068cd1dbfeeb',
-  kalm:'photo-1520250497591-112f2f40a3f4',
-  tam:'photo-1571896349842-33c89424de2d',
-  nara:'photo-1559339352-11d035aa65de',
-  jardin:'photo-1517248135467-4c7edcad34c4',
-  tide:'photo-1504674900247-0877df9cc836',
-  still:'photo-1544161515-4ab6ce6db874',
-  lune:'photo-1600334129128-685c5582fd35',
-  bar:'photo-1514933651103-005eec06c04b',
-  room:'photo-1590490360182-c33d57733427',
-  partner:'photo-1551882547-ff40c63fe5fa'
+/* ---------- Stock photography ----------
+   Each slot tries, in order: a local file in img/<key>.jpg (drop in photos
+   downloaded from Pixabay / Freepik / your own shoot), then Unsplash, then
+   Pexels. If every source fails the gradient ground stays visible. */
+const UN = id => w => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=70`;
+const PX = id => w => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
+const PHOTOS = {
+  hero:   [UN('1566073771259-6a8506099945'), PX(919)],
+  stay:   [UN('1582719478250-c89cadb08f67'), PX(164595)],
+  dine:   [PX(2504911), UN('1414235077428-338989a2e8c0')],
+  restore:[UN('1540555700478-4be289fbecef'), PX(6724402)],
+  mcp:    [UN('1542314831-068cd1dbfeeb'), PX(258154)],
+  kalm:   [PX(7974837), UN('1520250497591-112f2f40a3f4')],
+  tam:    [UN('1571896349842-33c89424de2d'), PX(261102)],
+  nara:   [UN('1559339352-11d035aa65de'), PX(776538)],
+  jardin: [PX(776538), UN('1517248135467-4c7edcad34c4')],
+  tide:   [UN('1504674900247-0877df9cc836'), PX(1579253)],
+  still:  [PX(6724589), UN('1544161515-4ab6ce6db874')],
+  lune:   [UN('1600334129128-685c5582fd35'), PX(6724402)],
+  room:   [UN('1590490360182-c33d57733427'), PX(271624)],
+  partner:[UN('1551882547-ff40c63fe5fa'), PX(258154)]
 };
-const src = (k,w=1400) => `https://images.unsplash.com/${IMG[k]||IMG.stay}?auto=format&fit=crop&w=${w}&q=70`;
-const pic = (k,w=900,cls='',eager=false) => `<div class="ph ${cls}"><img src="${src(k,w)}" alt="" ${eager?'fetchpriority="high"':'loading="lazy"'} onerror="this.remove()"></div>`;
+const srcs = (k,w=1400) => [`img/${k}.jpg`, ...(PHOTOS[k]||PHOTOS.stay).map(f=>f(w))];
+function nx(el){ const l=el.dataset.s.split('|'), i=+el.dataset.i+1; if(i<l.length){ el.dataset.i=i; el.src=l[i]; } else el.remove(); }
+const pic = (k,w=900,cls='',eager=false) => { const l=srcs(k,w); return `<div class="ph ${cls}"><img src="${l[0]}" data-s="${l.join('|')}" data-i="0" alt="" ${eager?'fetchpriority="high"':'loading="lazy"'} onerror="nx(this)"></div>`; };
 
 /* ---------- Reference data ---------- */
 const CATS = {stay:'Stay', dine:'Dine', restore:'Restore'};
@@ -652,6 +680,173 @@ const STATUS = {
 };
 const SLA_MIN = 30;
 
+/* ---------- Language ---------- */
+let LANG=(()=>{try{return localStorage.getItem('sumnight-lang')==='th'?'th':'en';}catch(e){return 'en';}})();
+const L=(en,th)=>LANG==='th'?th:en;
+const LOC=()=>LANG==='th'?'th-TH':'en-GB';
+
+const THFONTS=[
+  {id:'trirong',name:'Trirong + Anuphan',note:'หรูแบบคลาสสิก หัวเรื่องมีหัว เนื้อความทันสมัย',head:'Trirong',body:'Anuphan',q:'family=Trirong:wght@300;400;500&family=Anuphan:wght@300;400;500'},
+  {id:'noto',name:'Noto Serif Thai + IBM Plex Thai Looped',note:'แบบนิตยสาร อ่านง่าย มีหัวทั้งคู่',head:'Noto Serif Thai',body:'IBM Plex Sans Thai Looped',q:'family=Noto+Serif+Thai:wght@300;400;500&family=IBM+Plex+Sans+Thai+Looped:wght@300;400;500'},
+  {id:'pridi',name:'Pridi + Sarabun',note:'อบอุ่น เป็นทางการ แบบเอกสารไทย',head:'Pridi',body:'Sarabun',q:'family=Pridi:wght@300;400&family=Sarabun:wght@300;400;500'},
+  {id:'bai',name:'Bai Jamjuree',note:'โมเดิร์น เรียบ ดูแพง ไม่มีหัว',head:'Bai Jamjuree',body:'Bai Jamjuree',q:'family=Bai+Jamjuree:wght@300;400;500'},
+  {id:'prompt',name:'Prompt',note:'โมเดิร์น กลม ใช้กันมากในแบรนด์ไทย',head:'Prompt',body:'Prompt',q:'family=Prompt:wght@300;400;500'},
+  {id:'kanit',name:'Kanit',note:'หนักแน่น ทันสมัย เหมาะกับโซเชียล',head:'Kanit',body:'Kanit',q:'family=Kanit:wght@300;400;500'}
+];
+let THFONT=(()=>{try{return localStorage.getItem('sumnight-thfont')||'trirong';}catch(e){return 'trirong';}})();
+function loadFont(f){ if(document.getElementById('tf-'+f.id)) return; const l=document.createElement('link'); l.rel='stylesheet'; l.id='tf-'+f.id; l.href='https://fonts.googleapis.com/css2?'+f.q+'&display=swap'; document.head.appendChild(l); }
+function applyFont(id){ const f=THFONTS.find(x=>x.id===id)||THFONTS[0]; THFONT=f.id; loadFont(f);
+  document.documentElement.style.setProperty('--th-head',`"${f.head}"`); document.documentElement.style.setProperty('--th-body',`"${f.body}"`);
+  try{localStorage.setItem('sumnight-thfont',f.id);}catch(e){} }
+
+/* ---------- Thai translation ----------
+   Static interface text is translated from DICT as it is rendered; strings
+   with names, numbers or dates are matched by PATTERNS. */
+const DICT={
+/* nav & demo */
+'The houses':'สถานที่พันธมิตร','Membership':'สมาชิกภาพ','For partners':'สำหรับพาร์ทเนอร์','Request an invitation':'ขอรับคำเชิญ','sumnight home':'หน้าแรก sumnight',
+'Demo':'เดโม','Demo navigation':'เมนูเดโม','Reset':'รีเซ็ต','Clear all demo data':'ล้างข้อมูลเดโมทั้งหมด','Thai font':'ฟอนต์ภาษาไทย','Demo reset':'รีเซ็ตเดโมแล้ว','All sample data restored.':'คืนค่าข้อมูลตัวอย่างทั้งหมดแล้ว',
+'1 · Sales':'1 · หน้าขาย','min':'นาที','Booking':'','2 · LINE':'2 · LINE','Console':'คอนโซล','page':'','member':'','.':'',
+/* hero & intro */
+'Private membership · Thailand':'สมาชิกภาพส่วนตัว · ประเทศไทย','The quiet hours,':'ช่วงเวลาอันเงียบสงบ','reserved':'ที่จองไว้ให้คุณ',
+'sumnight opens the doors of Thailand’s most considered hotels, tables and spas to a small circle of members, and keeps them open long after dark.':'sumnight เปิดประตูสู่โรงแรม ร้านอาหาร และสปาที่คัดสรรที่สุดของประเทศไทย ให้กับสมาชิกกลุ่มเล็ก ๆ และเปิดรอไว้จนดึกดื่น',
+'Join the waiting list':'ลงชื่อใน Waiting List','The idea':'แนวคิด',
+'One membership, eight houses, and a concierge who answers on LINE. You are':'สมาชิกภาพเดียว แปดสถานที่ และคอนเซียร์จที่ตอบคุณผ่าน LINE ทุกแห่ง','known':'รู้จักคุณ','before you arrive.':'ก่อนคุณมาถึง',
+'Book a river suite, a counter seat or a candlelit ritual from the app you already use. Your preferences travel with you, from house to house.':'จองห้องสวีทริมแม่น้ำ ที่นั่งหน้าเคาน์เตอร์เชฟ หรือทรีตเมนต์ใต้แสงเทียน ได้จากแอปที่คุณใช้อยู่แล้ว และทุกที่จะจำความชอบของคุณไว้เสมอ',
+'01 · Stay':'01 · พักผ่อน','02 · Dine':'02 · รับประทาน','03 · Restore':'03 · ผ่อนคลาย',
+'Rooms that hold the evening light':'ห้องพักที่เก็บแสงยามเย็นไว้ให้คุณ','Upgrades on arrival, late checkouts that are simply yours, and complimentary nights each year.':'อัปเกรดห้องเมื่อเข้าพัก เช็กเอาต์บ่ายโดยไม่ต้องร้องขอ และคืนพักฟรีทุกปี',
+'Tables that are never full':'โต๊ะที่ไม่เคยเต็มสำหรับคุณ','A seat held back every night at each partner table, and the chef’s counter when you want it.':'ทุกร้านพันธมิตรกันที่นั่งไว้ให้สมาชิกทุกคืน และเคาน์เตอร์เชฟเมื่อคุณต้องการ',
+'Rituals, not appointments':'พิธีแห่งการพักผ่อน ไม่ใช่แค่นัดหมาย','Signature treatments included in your year, booked in two taps and remembered the next time.':'ทรีตเมนต์ซิกเนเจอร์รวมอยู่ในสมาชิกภาพ จองได้ในสองแตะ และจำความชอบไว้ครั้งต่อไป',
+'Founding partners':'พาร์ทเนอร์ผู้ก่อตั้ง','Eight independent houses across Bangkok, Chiang Mai, Hua Hin, Koh Samui and Phuket. More will follow, by invitation.':'แปดสถานที่อิสระในกรุงเทพฯ เชียงใหม่ หัวหิน เกาะสมุย และภูเก็ต และจะมีเพิ่มขึ้นตามคำเชิญ',
+'Stay':'พักผ่อน','Dine':'รับประทาน','Restore':'ผ่อนคลาย',
+/* places */
+'Bangkok':'กรุงเทพฯ','Riverside':'ริมแม่น้ำ','Sathorn':'สาทร','Sukhumvit':'สุขุมวิท','Chiang Mai':'เชียงใหม่','Hua Hin':'หัวหิน','Koh Samui':'เกาะสมุย','Phuket':'ภูเก็ต','Kamala':'กมลา','Singapore':'สิงคโปร์','Hong Kong':'ฮ่องกง','Other':'อื่น ๆ',
+'Bangkok · Chiang Mai · Hua Hin · Koh Samui · Phuket':'กรุงเทพฯ · เชียงใหม่ · หัวหิน · เกาะสมุย · ภูเก็ต',
+/* venue lines */
+'Twelve river suites, one quiet pier.':'สิบสองห้องสวีทริมน้ำ กับท่าเรือส่วนตัวอันเงียบสงบ','Pool villas above the Gulf.':'พูลวิลล่าเหนืออ่าวไทย','Teak houses in the rice terraces.':'เรือนไม้สักกลางนาขั้นบันได','Ten seats at a hinoki counter.':'สิบที่นั่งหน้าเคาน์เตอร์ไม้ฮิโนกิ','French cooking in a night garden.':'อาหารฝรั่งเศสในสวนยามค่ำคืน','Fire, fish and the Andaman.':'เปลวไฟ ปลาสด และทะเลอันดามัน','Thai rituals by candlelight.':'ศาสตร์บำบัดแบบไทยใต้แสงเทียน','Three-day resets by the sea.':'โปรแกรมฟื้นฟูสามวันริมทะเล',
+/* tiers */
+'Most chosen':'ยอดนิยม','Invitation only':'เฉพาะผู้ได้รับเชิญ','Three ways to belong':'สามระดับของการเป็นสมาชิก','Memberships are reviewed by a small committee each month. Fees are annual and include every benefit listed.':'คณะกรรมการพิจารณาใบสมัครทุกเดือน ค่าสมาชิกเป็นรายปีและรวมสิทธิประโยชน์ทั้งหมดที่ระบุไว้',
+'per year':'ต่อปี','By invitation':'ตามคำเชิญเท่านั้น','A first key to the houses, for the curious.':'กุญแจดอกแรกสู่ทุกสถานที่ สำหรับผู้ที่อยากเริ่มต้น','For regulars. The houses remember you.':'สำหรับแขกประจำ ทุกที่จดจำคุณได้','Private rooms, whole restaurants and journeys made for you.':'ห้องส่วนตัว ร้านอาหารทั้งร้าน และการเดินทางที่ออกแบบเพื่อคุณ',
+'Upgrade on arrival, when available':'อัปเกรดห้องเมื่อเข้าพัก (หากมีห้องว่าง)','15% at every partner table':'ส่วนลด 15% ทุกร้านพันธมิตร','One signature spa ritual':'สปาซิกเนเจอร์ 1 ครั้ง','Booking window of 14 days':'จองล่วงหน้าได้ 14 วัน','A birthday gift from the house':'ของขวัญวันเกิดจากทางร้าน',
+'Everything in Dusk':'สิทธิ์ทั้งหมดของ Dusk','Two complimentary nights':'คืนพักฟรี 2 คืน','Guaranteed 4pm checkout':'เช็กเอาต์ 16:00 น. การันตี','Seats at the chef’s counter':'ที่นั่งเคาน์เตอร์เชฟ','Four spa rituals':'สปาซิกเนเจอร์ 4 ครั้ง','A personal concierge on LINE':'คอนเซียร์จส่วนตัวทาง LINE',
+'Everything in Midnight':'สิทธิ์ทั้งหมดของ Midnight','Private dining and buyouts':'ห้องอาหารส่วนตัวและเหมาร้าน','Guest privileges for two':'สิทธิ์สำหรับผู้ติดตาม 2 ท่าน','Partner-hosted journeys':'ทริปพิเศษที่พาร์ทเนอร์จัดให้','First nights at new houses':'ได้สิทธิ์ก่อนใครเมื่อมีสถานที่ใหม่',
+'Ask to be considered':'ขอรับการพิจารณา',
+/* how it works */
+'How it works':'ขั้นตอน','From invitation to arrival':'ตั้งแต่คำเชิญจนถึงวันที่คุณมาถึง','Leave your details below. It takes a minute and there is no fee to wait.':'กรอกข้อมูลด้านล่าง ใช้เวลาเพียงนาทีเดียว และไม่มีค่าใช้จ่ายระหว่างรอ',
+'Continue on LINE':'ไปต่อที่ LINE','Add @sumnight and complete your profile with LINE Login. No new app, no new password.':'เพิ่มเพื่อน @sumnight และกรอกโปรไฟล์ด้วย LINE Login ไม่ต้องโหลดแอปใหม่ ไม่ต้องจำรหัสผ่าน',
+'Receive your card':'รับบัตรสมาชิก','Once approved, your digital card, perks and vouchers appear in LINE.':'เมื่อได้รับอนุมัติ บัตรดิจิทัล สิทธิประโยชน์ และ voucher จะปรากฏใน LINE ทันที',
+'Ask, and it is arranged':'แค่ขอ เราจัดการให้','Request a room, table or ritual. The house confirms, usually within thirty minutes.':'ขอจองห้อง โต๊ะ หรือสปาได้เลย ทางร้านมักยืนยันภายในสามสิบนาที',
+/* partners */
+'For hotels, restaurants and spas':'สำหรับโรงแรม ร้านอาหาร และสปา','Become a sumnight house':'ร่วมเป็นพาร์ทเนอร์ sumnight','We bring you members who are verified, profiled and ready to spend, and we fill the quiet nights you choose to open.':'เรานำสมาชิกที่ผ่านการยืนยันตัวตน มีโปรไฟล์ชัดเจน และพร้อมใช้จ่ายมาให้คุณ และช่วยเติมค่ำคืนที่เงียบเหงาในช่วงที่คุณเลือกเปิด',
+'Guests':'แขก','Verified by LINE, approved by our committee, with preferences on file before arrival.':'ยืนยันตัวตนด้วย LINE ผ่านการอนุมัติจากคณะกรรมการ และมีข้อมูลความชอบก่อนมาถึง',
+'Demand':'ยอดจอง','You choose which nights, tables and treatment slots to open to members.':'คุณเลือกเองว่าจะเปิดคืนไหน โต๊ะไหน หรือรอบสปาใดให้สมาชิก',
+'Operations':'การทำงาน','Requests arrive in a partner console. Confirm, offer another time or decline in one tap.':'คำขอจองเข้ามาที่คอนโซลพาร์ทเนอร์ ยืนยัน เสนอเวลาอื่น หรือปฏิเสธได้ในแตะเดียว',
+'Vouchers':'Voucher','Scan or type a code at the door. Each redemption is settled monthly.':'สแกนหรือพิมพ์รหัสที่หน้าร้าน ทุกการใช้ voucher สรุปยอดเป็นรายเดือน',
+'See the partner console':'ดูคอนโซลพาร์ทเนอร์','Talk to us':'ติดต่อเรา',
+/* apply form */
+'Waiting list':'Waiting List','Request an':'ขอรับ','invitation':'คำเชิญ','We admit a small number of members each month so every house can know every guest. You will hear from us on LINE.':'เรารับสมาชิกจำนวนจำกัดในแต่ละเดือน เพื่อให้ทุกสถานที่รู้จักแขกทุกท่าน เราจะติดต่อคุณทาง LINE',
+'people on the waiting list':'ท่านใน Waiting List','Next review':'พิจารณาครั้งถัดไป','LINE':'LINE',
+'Full name':'ชื่อ-นามสกุล','Email':'อีเมล','Mobile':'เบอร์มือถือ','City':'เมือง','I am most drawn to':'สิ่งที่คุณสนใจที่สุด','Referred by':'ผู้แนะนำ','Member number or house (optional)':'เลขสมาชิกหรือชื่อสถานที่ (ไม่บังคับ)',
+'I agree to sumnight’s Privacy Notice and to be contacted on LINE and email about my application (PDPA).':'ข้าพเจ้ายอมรับนโยบายความเป็นส่วนตัวของ sumnight และยินยอมให้ติดต่อทาง LINE และอีเมลเกี่ยวกับใบสมัคร (PDPA)',
+'Fill with sample guest':'กรอกข้อมูลตัวอย่าง','© 2026 sumnight. Demo with sample data.':'© 2026 sumnight เดโมนี้ใช้ข้อมูลตัวอย่าง',
+'Please add your full name.':'กรุณากรอกชื่อ-นามสกุล','Please add an email we can reach you at.':'กรุณากรอกอีเมลที่ติดต่อได้','Please accept the Privacy Notice to continue.':'กรุณายอมรับนโยบายความเป็นส่วนตัวก่อนดำเนินการต่อ',
+/* modal */
+'You are on the list':'คุณอยู่ในรายชื่อแล้ว','You are on the waiting list':'คุณอยู่ใน Waiting List แล้ว','Your next step happens on LINE. Add @sumnight to complete your profile and follow your application.':'ขั้นตอนถัดไปอยู่ใน LINE เพิ่มเพื่อน @sumnight เพื่อกรอกโปรไฟล์และติดตามสถานะใบสมัคร',
+'Scan with your phone camera, or tap the button below if you are on mobile.':'สแกนด้วยกล้องมือถือ หรือแตะปุ่มด้านล่างหากเปิดจากมือถือ',
+/* journey */
+'Member journey · LINE OA + LIFF':'เส้นทางสมาชิก · LINE OA + LIFF','Live prototype':'ต้นแบบใช้งานจริง','Membership that lives':'สมาชิกภาพที่อยู่','inside LINE':'ใน LINE',
+'Tap through the phone as the guest. Open the booking console in a second tab to play the house, and watch confirmations arrive here.':'ลองกดบนมือถือในฐานะแขก แล้วเปิดคอนโซลการจองในอีกแท็บเพื่อเล่นเป็นทางร้าน การยืนยันจะเด้งมาที่นี่ทันที',
+'LINE Official Account':'LINE Official Account','LIFF registration':'ลงทะเบียนผ่าน LIFF','Committee approval':'คณะกรรมการอนุมัติ','Member portal':'พอร์ทัลสมาชิก','Booking request':'ส่งคำขอจอง',
+'Submitted on the sales page. The guest adds @sumnight on LINE by QR code or button.':'ลงชื่อจากหน้าเว็บ แล้วแขกเพิ่มเพื่อน @sumnight ใน LINE ผ่าน QR code หรือปุ่ม',
+'A welcome message and rich menu. Every update reaches the guest here, with no app to download.':'ข้อความต้อนรับและ Rich Menu ทุกการแจ้งเตือนถึงแขกที่นี่ ไม่ต้องดาวน์โหลดแอป',
+'LINE Login gives a verified identity in one tap. The guest completes a profile and PDPA consent.':'LINE Login ยืนยันตัวตนได้ในแตะเดียว แขกกรอกโปรไฟล์และให้ความยินยอม PDPA',
+'The concierge approves in the console. The card, perks and vouchers are issued automatically.':'คอนเซียร์จอนุมัติในคอนโซล ระบบออกบัตร สิทธิประโยชน์ และ voucher ให้อัตโนมัติ',
+'Status, perks, voucher wallet and bookings, all inside LINE.':'สถานะ สิทธิประโยชน์ กระเป๋า voucher และการจอง ทั้งหมดอยู่ใน LINE',
+'The request lands in the house’s queue. The confirmation returns to the guest on LINE.':'คำขอเข้าคิวของทางร้าน และการยืนยันส่งกลับถึงแขกทาง LINE',
+'Skip to approved member':'ข้ามไปเป็นสมาชิกที่อนุมัติแล้ว','Open console in new tab':'เปิดคอนโซลในแท็บใหม่',
+/* LINE chat */
+'Back':'กลับ','Wallet':'กระเป๋า','Book':'จอง','Menu ▾':'เมนู ▾','Register':'ลงทะเบียน','Complete your profile':'กรอกโปรไฟล์ให้สมบูรณ์','Two minutes, verified with LINE. Our committee reviews applications every month.':'ใช้เวลาสองนาที ยืนยันตัวตนด้วย LINE คณะกรรมการพิจารณาใบสมัครทุกเดือน',
+'Membership active':'สมาชิกภาพเปิดใช้งานแล้ว','Open membership':'เปิดบัตรสมาชิก','Your booking is confirmed':'การจองของคุณได้รับการยืนยันแล้ว','The house offers another time':'ทางร้านเสนอเวลาใหม่','We couldn’t confirm this one':'ครั้งนี้ยังยืนยันไม่ได้','Request received':'ได้รับคำขอแล้ว',
+'When':'วันเวลา','Party':'จำนวนแขก','Confirmation':'หมายเลขยืนยัน','Note':'หมายเหตุ','Review new time':'ดูเวลาใหม่','View booking':'ดูการจอง',
+'Provider: sumnight Co., Ltd.':'ผู้ให้บริการ: บริษัท ซัมไนท์ จำกัด','Your profile name and photo':'ชื่อและรูปโปรไฟล์','Required':'จำเป็น','Your LINE user ID':'LINE user ID ของคุณ','Send messages from @sumnight':'รับข้อความจาก @sumnight','On':'เปิด','Allow':'อนุญาต','Cancel':'ยกเลิก',
+'Close and return to chat':'ปิดและกลับไปที่แชท','now':'ตอนนี้',
+/* register */
+'Step 2 of 2 · Profile':'ขั้นตอน 2 จาก 2 · โปรไฟล์','Tell us how you like':'บอกเราว่าคุณชอบ','the evening':'ค่ำคืนแบบไหน','The houses read this before you arrive.':'ทุกสถานที่จะอ่านข้อมูลนี้ก่อนคุณมาถึง','Verified with LINE Login':'ยืนยันตัวตนด้วย LINE Login',
+'Name on card':'ชื่อบนบัตร','Birthday':'วันเกิด','Interests':'ความสนใจ','Dietary':'ข้อจำกัดด้านอาหาร','None':'ไม่มี','Vegetarian':'มังสวิรัติ','Pescatarian':'ทานปลาแต่ไม่ทานเนื้อ','No pork':'ไม่ทานหมู','No shellfish':'ไม่ทานหอยและกุ้งปู','Halal':'ฮาลาล','Gluten free':'ปลอดกลูเตน',
+'Anything the houses should know':'สิ่งที่อยากให้ทางร้านทราบ','Anniversary in October, firm massage pressure':'ครบรอบแต่งงานเดือนตุลาคม ชอบนวดน้ำหนักมือแรง',
+'I consent to sumnight sharing my profile with partner houses for my bookings, as described in the Privacy Notice (PDPA).':'ข้าพเจ้ายินยอมให้ sumnight แบ่งปันโปรไฟล์กับสถานที่พันธมิตรเพื่อการจอง ตามนโยบายความเป็นส่วนตัว (PDPA)',
+'Send me invitations from partner houses on LINE.':'รับคำเชิญพิเศษจากสถานที่พันธมิตรทาง LINE','Submit application':'ส่งใบสมัคร','Consent is needed so houses can receive your preferences.':'ต้องได้รับความยินยอมก่อน ทางร้านจึงจะรับข้อมูลความชอบของคุณได้',
+/* pending */
+'Application':'ใบสมัคร','Your application is with our membership committee. We will write to you here on LINE.':'ใบสมัครของคุณอยู่ระหว่างการพิจารณาของคณะกรรมการ เราจะแจ้งผลทาง LINE',
+'Joined the waiting list':'ลงชื่อใน Waiting List แล้ว','Profile completed':'กรอกโปรไฟล์ครบแล้ว','Committee review':'คณะกรรมการพิจารณา','Issued in LINE on approval':'ออกบัตรใน LINE เมื่อได้รับอนุมัติ',
+'Approve this guest from the booking console (Waiting list), or simulate it here.':'อนุมัติแขกท่านนี้ได้จากคอนโซล (เมนู Waiting List) หรือจำลองการอนุมัติที่นี่','Simulate approval':'จำลองการอนุมัติ','Open console':'เปิดคอนโซล',
+/* app */
+'Home':'หน้าหลัก','Perks':'สิทธิพิเศษ','Bookings':'การจอง','Towards':'อีกนิดถึงระดับ','Highest tier':'ระดับสูงสุดแล้ว','Upcoming':'ที่กำลังจะมาถึง','All bookings':'การจองทั้งหมด','Nothing planned yet':'ยังไม่มีแผน','Your concierge can hold a table for tonight.':'คอนเซียร์จช่วยกันโต๊ะคืนนี้ให้คุณได้','In your wallet':'ในกระเป๋าของคุณ','Show membership QR':'แสดง QR สมาชิก',
+'Your perks':'สิทธิพิเศษของคุณ','Included':'รวมในสมาชิกภาพ','Upgrade on arrival':'อัปเกรดห้องเมื่อเข้าพัก','When the next category is free':'เมื่อห้องระดับถัดไปว่าง','15% at partner tables':'ส่วนลด 15% ร้านพันธมิตร','Applied to the bill automatically':'หักจากบิลให้อัตโนมัติ',
+'Complimentary nights':'คืนพักฟรี','Maison Chao Phraya or Kalm Villas':'Maison Chao Phraya หรือ Kalm Villas','At every partner hotel':'ทุกโรงแรมพันธมิตร','Chef’s counter':'เคาน์เตอร์เชฟ','Held for members each evening':'กันที่นั่งให้สมาชิกทุกค่ำ','Personal concierge':'คอนเซียร์จส่วนตัว','Your concierge replies here on LINE':'คอนเซียร์จตอบคุณทาง LINE',
+'Signature spa ritual':'สปาซิกเนเจอร์','90 minutes at Still Spa or Lune':'90 นาทีที่ Still Spa หรือ Lune','Birthday gift':'ของขวัญวันเกิด','A bottle with dinner in your birthday month':'ไวน์หนึ่งขวดกับมื้อค่ำในเดือนเกิด','Booking window':'ระยะจองล่วงหน้า','14 days ahead':'ล่วงหน้า 14 วัน','30 days ahead':'ล่วงหน้า 30 วัน',
+'Private dining':'ห้องอาหารส่วนตัว','Buyouts and private rooms on request':'เหมาร้านและห้องส่วนตัวตามคำขอ','Guest privileges':'สิทธิ์ผู้ติดตาม','Two named guests share your benefits':'ผู้ติดตาม 2 ท่านใช้สิทธิ์ร่วมกับคุณ',
+'Vouchers on hand':'Voucher ที่มีอยู่','Show the code at the house, or attach a voucher when you book.':'แสดงรหัสที่หน้าร้าน หรือแนบ voucher ตอนจอง','Tap to use':'แตะเพื่อใช้','Used':'ใช้แล้ว','Held':'ล็อกไว้','Redeemed':'ใช้สิทธิ์แล้ว','For a booking':'สำหรับการจอง','Any partner house':'ทุกสถานที่พันธมิตร',
+'Complimentary Night':'คืนพักฟรี','Signature Ritual · 90 min':'สปาซิกเนเจอร์ · 90 นาที','Birthday Champagne':'แชมเปญวันเกิด','Upgrade on Arrival':'อัปเกรดห้องเมื่อเข้าพัก','Chef’s Counter for Two':'เคาน์เตอร์เชฟสำหรับสองท่าน',
+'One night in a River Suite with breakfast for two.':'พัก 1 คืนในห้อง River Suite พร้อมอาหารเช้าสำหรับสองท่าน','Ninety minutes, herbal compress and tea ceremony.':'เก้าสิบนาที พร้อมลูกประคบสมุนไพรและพิธีชงชา','A bottle of Ruinart Blanc de Blancs with dinner.':'Ruinart Blanc de Blancs หนึ่งขวดกับมื้อค่ำ','Next room category, subject to availability.':'อัปเกรดห้องหนึ่งระดับ ขึ้นอยู่กับห้องว่าง','The 18-course omakase for two guests.':'โอมากาเสะ 18 คอร์สสำหรับสองท่าน',
+'Show at the door':'แสดงที่หน้าร้าน','Close':'ปิด',
+'Request a booking':'ส่งคำขอจอง','Where tonight?':'คืนนี้ไปที่ไหนดี','Check-in':'เช็กอิน','Date':'วันที่','Nights':'จำนวนคืน','Time':'เวลา','Use a voucher':'ใช้ voucher','No voucher':'ไม่ใช้ voucher','Member rate applies':'ใช้ราคาสมาชิก','Note to the house':'ข้อความถึงทางร้าน',
+'Arrival time, occasion, pillow preference':'เวลาที่มาถึง โอกาสพิเศษ หมอนที่ชอบ','Seating, occasion, allergies':'ที่นั่ง โอกาสพิเศษ อาหารที่แพ้','Request booking':'ส่งคำขอจอง','This is a request. You are not charged until the house confirms.':'นี่คือคำขอจอง ระบบจะยังไม่เรียกเก็บเงินจนกว่าทางร้านยืนยัน',
+'Fewer guests':'ลดจำนวนแขก','More guests':'เพิ่มจำนวนแขก','Fewer nights':'ลดจำนวนคืน','More nights':'เพิ่มจำนวนคืน','Today':'วันนี้',
+'View my bookings':'ดูการจองของฉัน','Book something else':'จองอย่างอื่นเพิ่ม','Your evenings':'ค่ำคืนของคุณ','No bookings yet.':'ยังไม่มีการจอง','Request your first booking':'ส่งคำขอจองครั้งแรก','The house can offer':'ทางร้านเสนอ','instead.':'แทน','Accept':'ยอมรับ','Decline':'ปฏิเสธ',
+/* status */
+'Awaiting house':'รอร้านยืนยัน','New time offered':'เสนอเวลาใหม่','Confirmed':'ยืนยันแล้ว','Completed':'เสร็จสิ้น','Declined':'ปฏิเสธ','No-show':'ไม่มาตามนัด','Cancelled':'ยกเลิกแล้ว',
+/* console */
+'Concierge console':'คอนโซลคอนเซียร์จ','Partner console':'คอนโซลพาร์ทเนอร์','Viewing as':'ดูในฐานะ','sumnight Concierge':'sumnight Concierge','Partner house':'สถานที่พันธมิตร','Sees every house, the waiting list and members.':'เห็นทุกสถานที่ Waiting List และสมาชิกทั้งหมด',
+'Overview':'ภาพรวม','Members':'สมาชิก','Partner houses':'สถานที่พันธมิตร','Redeem voucher':'ใช้สิทธิ์ voucher','Head concierge':'หัวหน้าคอนเซียร์จ','Front desk':'แผนกต้อนรับ','Nicha P.':'ณิชา พ.',
+'Open requests':'ดูคำขอจอง','Awaiting reply':'รอตอบกลับ','All within target':'ตอบทันทุกรายการ','Confirmed · next 7 days':'ยืนยันแล้ว · 7 วันข้างหน้า','Avg. reply time':'เวลาตอบเฉลี่ย','Last 30 days':'30 วันล่าสุด','Vouchers redeemed':'Voucher ที่ใช้แล้ว','This month':'เดือนนี้',
+'Needs a reply':'รอการตอบกลับ','Oldest first · target 30 min':'เก่าสุดก่อน · เป้าหมาย 30 นาที','Every request has a reply.':'ตอบครบทุกคำขอแล้ว','Next 7 days':'7 วันข้างหน้า','Requested and confirmed':'คำขอและที่ยืนยันแล้ว','Nothing today.':'วันนี้ยังไม่มีการจอง','voucher':'voucher',
+'All houses':'ทุกสถานที่','Search member, ref, house':'ค้นหาสมาชิก เลขอ้างอิง สถานที่','List':'รายการ','Week':'สัปดาห์','Requests':'คำขอใหม่','Time offered':'เสนอเวลาใหม่','Past & closed':'ผ่านไปแล้ว/ปิด','All':'ทั้งหมด','Tap a booking to reply':'แตะการจองเพื่อตอบกลับ',
+'Ref':'เลขอ้างอิง','Member':'สมาชิก','House':'สถานที่','Voucher':'Voucher','Status':'สถานะ','Waiting':'รอมาแล้ว','Requested':'ส่งคำขอ','No bookings match these filters.':'ไม่พบการจองตามตัวกรองนี้','You':'คุณ',
+'Request':'คำขอ','Reply':'ตอบกลับ','History':'ประวัติ','Confirm booking':'ยืนยันการจอง','Offer another time':'เสนอเวลาอื่น','House confirmation number':'หมายเลขยืนยันของร้าน','Personal note (optional)':'ข้อความส่วนตัว (ไม่บังคับ)','We have saved the counter seats for you.':'เราเก็บที่นั่งหน้าเคาน์เตอร์ไว้ให้คุณแล้ว',
+'Member receives on LINE':'ข้อความที่สมาชิกจะได้รับทาง LINE','Confirm and notify':'ยืนยันและแจ้งสมาชิก','Offer date':'วันที่เสนอ','Offer time':'เวลาที่เสนอ','Send offer':'ส่งข้อเสนอ','Reason shared with the member':'เหตุผลที่แจ้งสมาชิก',
+'Fully committed that evening.':'คืนนั้นเต็มแล้ว','Private event that evening.':'คืนนั้นมีงานส่วนตัว','Party size is larger than we can seat.':'จำนวนแขกมากเกินกว่าที่รองรับได้','Closed for maintenance.':'ปิดปรับปรุง','Decline and notify':'ปฏิเสธและแจ้งสมาชิก',
+'Mark as arrived':'แขกมาถึงแล้ว','Cancel booking':'ยกเลิกการจอง','Member accepted by phone':'สมาชิกยืนยันทางโทรศัพท์แล้ว','Requested in LINE':'ส่งคำขอผ่าน LINE','Requested just now':'ส่งคำขอเมื่อสักครู่','Guest arrived':'แขกมาถึงแล้ว','Marked as no-show':'บันทึกว่าไม่มาตามนัด','Cancelled by the house':'ทางร้านยกเลิก','Member declined the new time':'สมาชิกปฏิเสธเวลาใหม่','Voucher redeemed at the house':'ใช้ voucher ที่ร้านแล้ว',
+'Applicant':'ผู้สมัคร','Interests ':'ความสนใจ','Wants':'ระดับที่สนใจ','Source':'ช่องทาง','Action':'ดำเนินการ','Invite on LINE':'ส่งคำเชิญทาง LINE','Approve':'อนุมัติ','Invited on LINE':'ส่งคำเชิญแล้ว','Profile complete':'โปรไฟล์ครบแล้ว','Tier':'ระดับ','The waiting list is clear.':'ไม่มีผู้รออนุมัติ',
+'Tip for the demo: complete the LIFF profile on the phone first, then approve here to issue the card on LINE.':'เคล็ดลับเดโม: กรอกโปรไฟล์ LIFF บนมือถือก่อน แล้วค่อยอนุมัติที่นี่ ระบบจะส่งบัตรไปทาง LINE',
+'Instagram':'Instagram','Google':'Google','Demo guest':'แขกเดโม','Event · Nara pop-up':'อีเวนต์ · Nara pop-up',
+'Since':'เป็นสมาชิกตั้งแต่','Visits this year':'เข้าใช้ปีนี้','Preferences':'ความชอบ','Founding houses':'สถานที่ผู้ก่อตั้ง','Avg. reply':'ตอบเฉลี่ย','View as this house':'ดูในฐานะสถานที่นี้',
+'Check a code':'ตรวจสอบรหัส','Scan the QR in the guest’s LINE wallet, or type the code printed under it.':'สแกน QR จากกระเป๋าใน LINE ของแขก หรือพิมพ์รหัสที่อยู่ใต้ QR','Check':'ตรวจสอบ','Code not found':'ไม่พบรหัสนี้','Check the code with the guest, or ask them to open the voucher in LINE.':'ตรวจสอบรหัสกับแขกอีกครั้ง หรือให้แขกเปิด voucher ใน LINE',
+'Already redeemed':'ใช้สิทธิ์ไปแล้ว','Different house':'เป็นของสถานที่อื่น','Expired':'หมดอายุ','Valid':'ใช้ได้','Holder':'ผู้ถือ','Valid until':'ใช้ได้ถึง','Code':'รหัส','Redeem now':'ใช้สิทธิ์ตอนนี้','Any':'ทุกที่',
+'Expected in the next 3 days':'คาดว่าจะใช้ใน 3 วันข้างหน้า','Vouchers attached to bookings':'Voucher ที่แนบกับการจอง','No vouchers expected.':'ไม่มี voucher ที่รอใช้',
+'New booking request':'มีคำขอจองใหม่','Invitation sent on LINE':'ส่งคำเชิญทาง LINE แล้ว','Card and vouchers sent on LINE':'ส่งบัตรและ voucher ทาง LINE แล้ว','Confirmed and sent on LINE':'ยืนยันและส่งทาง LINE แล้ว','Offer sent on LINE':'ส่งข้อเสนอทาง LINE แล้ว','Declined and member notified':'ปฏิเสธและแจ้งสมาชิกแล้ว','Voucher redeemed':'ใช้ voucher แล้ว',
+'QR code':'คิวอาร์โค้ด','Tier ':'ระดับ',
+/* member notes */
+'River-view suites. No shellfish. Anniversary 14 Oct.':'ชอบห้องวิวแม่น้ำ ไม่ทานหอยและกุ้งปู ครบรอบแต่งงาน 14 ต.ค.','Prefers early tables. Brings his father.':'ชอบโต๊ะรอบหัวค่ำ มักพาคุณพ่อมาด้วย','Pescatarian. Feather-free pillows.':'ทานปลาแต่ไม่ทานเนื้อ ใช้หมอนไม่มีขนนก','Flies in Thursdays. Late check-in.':'บินมาทุกวันพฤหัส เช็กอินดึก','Founding member. Private rooms only.':'สมาชิกผู้ก่อตั้ง ใช้ห้องส่วนตัวเท่านั้น','Firm pressure. Allergic to lavender oil.':'ชอบนวดน้ำหนักมือแรง แพ้น้ำมันลาเวนเดอร์','Travels with a small dog (Mochi).':'เดินทางกับสุนัขตัวเล็ก (โมจิ)','Celebrating a promotion this month.':'เพิ่งได้เลื่อนตำแหน่งเดือนนี้','Vegetarian. Sits away from the door.':'ทานมังสวิรัติ ชอบนั่งห่างจากประตู',
+'Counter seats, please.':'ขอที่นั่งหน้าเคาน์เตอร์','Anniversary. Late checkout if possible.':'ครบรอบแต่งงาน ขอเช็กเอาต์บ่ายถ้าเป็นไปได้','Firm pressure. No lavender.':'นวดน้ำหนักมือแรง ไม่ใช้ลาเวนเดอร์','Father’s 70th birthday.':'วันเกิดครบ 70 ปีของคุณพ่อ','Honeymoon. Pool villa if possible.':'ฮันนีมูน ขอพูลวิลล่าถ้าเป็นไปได้'
+};
+const PATTERNS=[
+ [/^No\. (\d+)$/,'ลำดับที่ $1'],[/^Thank you, (.+)\.$/,'ขอบคุณค่ะ คุณ$1'],[/^(\d+) active$/,'ใช้ได้ $1 ใบ'],[/^(\d+) of (\d+) left$/,'เหลือ $1 จาก $2'],
+ [/^(\d+) past 30-min target$/,'$1 รายการเกินเป้า 30 นาที'],[/^(\d+) bookings?$/,'$1 รายการ'],[/^(\d+) applicants · (\d+) members$/,'ผู้สมัคร $1 ท่าน · สมาชิก $2 ท่าน'],[/^(\d+) members$/,'จำกัด $1 ท่าน'],[/^(\d+) guests?$/,'$1 ท่าน'],
+ [/^Requested (.+) ago$/,'ส่งคำขอเมื่อ $1 ที่แล้ว'],[/^(.+@.+) · (.+) ago$/,'$1 · เมื่อ $2 ที่แล้ว'],[/^Renews (.+)$/,'ต่ออายุ $1'],[/^Valid until (.+)$/,'ใช้ได้ถึง $1'],[/^until (.+)$/,'ถึง $1'],[/^Next review (.+)$/,'พิจารณาครั้งถัดไป $1'],[/^Next committee review$/,'คณะกรรมการพิจารณาครั้งถัดไป'],
+ [/^Request sent · (.+)$/,'ส่งคำขอแล้ว · $1'],[/^(.+) has your request\.$/,'$1 ได้รับคำขอของคุณแล้ว'],[/^Welcome to sumnight, (.+)$/,'ยินดีต้อนรับสู่ sumnight คุณ$1'],
+ [/^Your (\w+) card and (\d+) vouchers are ready\.$/,'บัตร $1 และ voucher อีก $2 ใบพร้อมใช้งานแล้ว'],[/^Your (\w+) card$/,'บัตร $1 ของคุณ'],[/^(\w+) benefits$/,'สิทธิประโยชน์ระดับ $1'],
+ [/^Welcome to sumnight\. Your (\w+) membership is active\.$/,'ยินดีต้อนรับสู่ sumnight สมาชิกภาพระดับ $1 ของคุณเปิดใช้งานแล้ว'],[/^(.+) approved · (\w+)$/,'อนุมัติ $1 · $2'],
+ [/^(.+): your booking on (.+) is confirmed\.$/,'$1: ยืนยันการจองวันที่ $2 แล้ว'],[/^(.+) has offered another time\. Tap to review\.$/,'$1 เสนอเวลาใหม่ แตะเพื่อดูรายละเอียด'],[/^(.+) could not confirm your request\.$/,'$1 ไม่สามารถยืนยันคำขอของคุณได้'],[/^Voucher redeemed: (.+)$/,'ใช้ voucher แล้ว: $1'],
+ [/^Confirmed by (.+)$/,'ยืนยันโดย $1'],[/^House offered (.+) instead$/,'ทางร้านเสนอ $1 แทน'],[/^Declined by (.+?): (.+)$/,'ปฏิเสธโดย $1: $2'],[/^Member accepted the new time$/,'สมาชิกยอมรับเวลาใหม่'],[/^Note to member: (.+)$/,'ข้อความถึงสมาชิก: $1'],[/^(.+) offered (.+)$/,'$1 เสนอ $2'],
+ [/^Sees only requests and vouchers for (.+)\.$/,'เห็นเฉพาะคำขอจองและ voucher ของ $1'],[/^Waiting for the member to accept (.+)\.$/,'รอสมาชิกตอบรับวันที่ $1'],[/^‹ All \w+$/,'‹ ดูทั้งหมด'],[/^of (\d+) visits this year$/,'จาก $1 ครั้งในปีนี้'],[/^Booking (SNB-\d+)$/,'การจอง $1'],
+ [/^(\d+) (Stay|Dine|Restore)$/,(m,n,c)=>n+' '+DICT[c]],[/^Today (\d+)$/,'วันนี้ $1'],[/^Referral$/,'เพื่อนแนะนำ'],[/^Partner$/,'พาร์ทเนอร์'],[/^Event$/,'อีเวนต์'],[/^Next committee review$/,'คณะกรรมการพิจารณาครั้งถัดไป']
+];
+function trOne(k){ let v=DICT[k]; if(v!=null) return v; for(const [re,rep] of PATTERNS){ if(re.test(k)) return k.replace(re,rep); } return null; }
+function tr(t){ if(LANG!=='th'||t==null) return t; const k=String(t).trim(); if(!k) return t; let v=trOne(k);
+  if(v==null && k.includes(' · ')){ const parts=k.split(' · '); const out=parts.map(x=>trOne(x.trim())??x); if(out.some((x,i)=>x!==parts[i])) v=out.join(' · '); }
+  return v==null?t:String(t).replace(k,v); }
+function i18n(root){ if(LANG!=='th'||!root) return;
+  if(root.nodeType===3){ if(root.parentElement&&!root.parentElement.closest('[data-noi18n],script,style')){ const v=tr(root.nodeValue); if(v!==root.nodeValue) root.nodeValue=v; } return; }
+  if(root.closest&&root.closest('[data-noi18n],script,style')) return;
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement&&!n.parentElement.closest('[data-noi18n],script,style')?1:2});
+  let n; while((n=w.nextNode())){ const v=tr(n.nodeValue); if(v!==n.nodeValue) n.nodeValue=v; }
+  const els=[root,...root.querySelectorAll('[placeholder],[aria-label],[title]')];
+  els.forEach(el=>{ if(!el.getAttribute) return; ['placeholder','aria-label','title'].forEach(a=>{ const x=el.getAttribute(a); if(x){ const y=tr(x); if(y!==x) el.setAttribute(a,y); } }); });
+}
+new MutationObserver(ms=>{ if(LANG!=='th') return; for(const m of ms) for(const n of m.addedNodes) i18n(n); }).observe(document.documentElement,{childList:true,subtree:true});
+document.documentElement.lang=LANG; applyFont(THFONT);
+
 /* ---------- Helpers ---------- */
 const $ = (s,r=document)=>r.querySelector(s);
 const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
@@ -659,18 +854,18 @@ const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>
 function isoOf(d){const z=new Date(d);z.setMinutes(z.getMinutes()-z.getTimezoneOffset());return z.toISOString().slice(0,10);}
 function day(n){const d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()+n);return isoOf(d);}
 const DT = iso => new Date(iso+'T12:00:00');
-const fmtD = iso => DT(iso).toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
-const fmtS = iso => DT(iso).toLocaleDateString('en-GB',{day:'numeric',month:'short'});
-const fmtLong = iso => DT(iso).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-const hhmm = ts => new Date(ts).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
-function ago(ts){const m=Math.max(0,Math.round((Date.now()-ts)/60000));if(m<60)return m+' min';const h=Math.round(m/60);if(h<48)return h+' h';return Math.round(h/24)+' d';}
+const fmtD = iso => DT(iso).toLocaleDateString(LOC(),{weekday:'short',day:'numeric',month:'short'});
+const fmtS = iso => DT(iso).toLocaleDateString(LOC(),{day:'numeric',month:'short'});
+const fmtLong = iso => DT(iso).toLocaleDateString(LOC(),{day:'numeric',month:'long',year:'numeric'});
+const hhmm = ts => new Date(ts).toLocaleTimeString(LOC(),{hour:'2-digit',minute:'2-digit'});
+function ago(ts){const m=Math.max(0,Math.round((Date.now()-ts)/60000));if(m<60)return m+L(' min',' นาที');const h=Math.round(m/60);if(h<48)return h+L(' h',' ชม.');return Math.round(h/24)+L(' d',' วัน');}
 const minsSince = ts => (Date.now()-ts)/60000;
 const rid = (n=4) => Array.from({length:n},()=>'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[Math.floor(Math.random()*32)]).join('');
 const initials = n => n.split(' ').map(x=>x[0]).slice(0,2).join('');
 const firstName = n => (n||'').trim().split(/\s+/)[0]||'Guest';
 function when(b){return VENUES.find(v=>v.id===b.venue)?.cat==='stay'
-  ? `${fmtD(b.date)} · ${b.nights} night${b.nights>1?'s':''}` : `${fmtD(b.date)} · ${b.time}`;}
-function party(b){return `${b.guests} guest${b.guests>1?'s':''}`;}
+  ? `${fmtD(b.date)} · ${b.nights} ${L('night'+(b.nights>1?'s':''),'คืน')}` : `${fmtD(b.date)} · ${b.time}`;}
+function party(b){return `${b.guests} ${L('guest'+(b.guests>1?'s':''),'ท่าน')}`;}
 
 function qr(text,size=120,fg='#0D0B0C',bg='#fff'){
   const n=25;let h=2166136261;for(const c of String(text)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)>>>0;}h|=1;
@@ -765,12 +960,21 @@ function makeMe(o){
   const pos = 248 + S.waitlist.length;
   const me = {name:o.name, email:o.email, phone:o.phone, city:o.city||'Bangkok', interests:o.interests||['stay','dine','restore'], tierInterest:o.tier||'Midnight', source:o.source||'sumnight.com',
     pos, stage:'waitlisted', at:Date.now(), tier:null, no:null, birthday:'', dietary:'None', occasion:'', vouchers:[], perksUsed:{}, chat:[], toasts:[]};
-  me.chat.push({from:'oa',k:'text',ts:Date.now(),text:`สวัสดีค่ะ คุณ${firstName(me.name)} ยินดีต้อนรับสู่ sumnight\nThank you for joining the waiting list. You are number ${pos}.`});
+  me.chat.push({from:'oa',k:'text',key:'welcome',ts:Date.now()});
   me.chat.push({from:'oa',k:'flex',kind:'register',ts:Date.now()});
   return me;
 }
 function ensureMe(){ if(!S.me){ S.me = makeMe({name:'Ananya Rattanakul',email:'ananya.r@example.com',phone:'081 234 5678',city:'Bangkok',interests:['stay','restore'],tier:'Midnight',source:'Demo guest'}); save(); } return S.me; }
 function pushChat(msg, toast){ if(!S.me)return; msg.ts=Date.now(); S.me.chat.push(msg); if(toast){S.me.toasts.push({id:rid(6),text:toast,ts:Date.now()});} }
+function chatText(m){
+  const me=S.me, fn=firstName(me.name);
+  if(m.key==='welcome') return L(`Hello Khun ${fn}, welcome to sumnight.\nThank you for joining the waiting list. You are number ${me.pos}.`,`สวัสดีค่ะ คุณ${fn} ยินดีต้อนรับสู่ sumnight\nขอบคุณที่ลงชื่อใน waiting list คุณคือลำดับที่ ${me.pos} ค่ะ`);
+  if(m.key==='profile') return L(`Thank you, Khun ${fn}.\nYour profile is complete. The committee will review your application and reply here.`,`ขอบคุณค่ะ คุณ${fn}\nโปรไฟล์ของคุณเรียบร้อยแล้ว คณะกรรมการจะพิจารณาใบสมัครและแจ้งผลทางแชทนี้ค่ะ`);
+  if(m.key==='received'){ const b=S.bookings.find(x=>x.id===m.bid); if(!b) return ''; const v=V(b.venue);
+    return L(`Request received · ${b.ref}\n${v.name}, ${when(b)}, ${party(b)}.\nThe house will reply within ${SLA_MIN} minutes.`,`ได้รับคำขอจองแล้ว · ${b.ref}\n${v.name} ${when(b)} ${party(b)}\nทางร้านจะตอบกลับภายใน ${SLA_MIN} นาทีค่ะ`); }
+  if(m.key==='redeemed') return L(`Voucher redeemed · ${m.title}\nThank you for visiting. We hope it was a lovely evening.`,`ใช้ voucher เรียบร้อย · ${tr(m.title)}\nขอบคุณที่มาใช้บริการ หวังว่าจะเป็นค่ำคืนที่ดีนะคะ`);
+  return m.text||'';
+}
 
 function issueMembership(tier){
   const me=S.me; me.stage='member'; me.tier=tier; me.no='SN-0'+me.pos; me.since=day(0);
@@ -802,13 +1006,21 @@ function render(){
   if(r==='line') flushPhoneToasts();
   if(r==='admin' && U.page==='bookings'){ const s=$('#q'); if(s&&U._focusQ){ s.focus(); s.setSelectionRange(s.value.length,s.value.length); } }
 }
+function renderFontPop(){
+  const el=$('#fontpop'); if(!el) return;
+  if(!U.fontpop){ el.innerHTML=''; return; }
+  THFONTS.forEach(loadFont);
+  el.innerHTML=`<div class="fontpop" role="dialog" aria-label="Thai font" data-noi18n><div class="hd"><b>ฟอนต์ภาษาไทย</b><button class="link" data-act="fontpick">ปิด</button></div><small style="color:var(--mute-l);font-size:12.5px">เลือกแล้วเว็บจะเปลี่ยนเป็นภาษาไทยและใช้ฟอนต์นั้นทันที ระบบจำค่าไว้ให้</small>
+    ${THFONTS.map(f=>`<button class="fopt ${THFONT===f.id?'on':''}" data-act="setfont" data-f="${f.id}"><span class="n"><span>${f.name}</span><span>${THFONT===f.id?'ใช้อยู่':''}</span></span><span class="h" style="font-family:'${f.head}',serif">ช่วงเวลาอันเงียบสงบ ที่จองไว้ให้คุณ</span><span class="b" style="font-family:'${f.body}',sans-serif">สมาชิกภาพส่วนตัว สำหรับโรงแรม ร้านอาหาร และสปาที่คัดสรรที่สุดในประเทศไทย · ${f.note}</span></button>`).join('')}</div>`;
+}
 function renderDemobar(){
   const r=route();
   $('#demobar').innerHTML = `<span class="tag">Demo</span>
     <a href="#home" class="${r==='home'?'on':''}">1 · Sales<span class="lg"> page</span></a>
     <a href="#line" class="${r==='line'?'on':''}">2 · LINE<span class="lg"> member</span></a>
     <a href="#admin" class="${r==='admin'?'on':''}">3 · <span class="lg">Booking </span>Console</a>
-    <span class="sep"></span><button data-act="reset" title="Clear all demo data">Reset</button>`;
+    <span class="sep"></span><button data-act="lang" data-noi18n>${LANG==='th'?'EN':'ไทย'}</button><button data-act="fontpick" title="Thai font">ก Aa</button><button data-act="reset" title="Clear all demo data">Reset</button>`;
+  renderFontPop();
 }
 
 /* =========================================================
@@ -831,6 +1043,7 @@ function viewHome(){
       <button class="hide-m" data-act="scroll" data-to="houses">The houses</button>
       <button class="hide-m" data-act="scroll" data-to="membership">Membership</button>
       <button class="hide-m" data-act="scroll" data-to="partners">For partners</button>
+      <button class="lang" data-act="lang" data-noi18n>${LANG==='th'?'EN':'TH'}</button>
       <button class="btn btn-ghost-d btn-sm" data-act="scroll" data-to="apply">Request an invitation</button>
     </div>
   </header>
@@ -1002,7 +1215,7 @@ function viewLine(){
     <div class="j-phone-wrap"><div class="phone"><div class="screen" id="screen">${viewPhone()}</div></div></div>
   </div>`;
 }
-function statusBar(dark){ const t=new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+function statusBar(dark){ const t=new Date().toLocaleTimeString(LOC(),{hour:'2-digit',minute:'2-digit'});
   return `<div class="sbar ${dark?'sbar-d':'sbar-l'}"><span class="num">${t}</span><span class="isl"></span><span class="ic"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".5"/><rect x="2" y="2" width="16" height="8" rx="1.5" fill="currentColor"/><rect x="22.5" y="4" width="1.5" height="4" rx=".7" fill="currentColor" opacity=".5"/></svg></span></div>`; }
 function viewPhone(){
   const me=S.me;
@@ -1027,7 +1240,7 @@ function flexHTML(m){
 function viewChat(){
   const me=S.me;
   const msgs=me.chat.map(m=>{
-    const inner = m.k==='text' ? `<div class="lbub">${esc(m.text)}</div>` : flexHTML(m);
+    const inner = m.k==='text' ? `<div class="lbub" data-noi18n>${esc(chatText(m))}</div>` : flexHTML(m);
     if(!inner) return '';
     return m.from==='me' ? `<div class="lmsg me"><div class="lbub">${esc(m.text)}</div><span class="ltime">${hhmm(m.ts)}</span></div>`
       : `<div class="lmsg"><span class="lav"><span class="logo">sn<i></i></span></span>${inner}<span class="ltime">${hhmm(m.ts)}</span></div>`;
@@ -1103,7 +1316,7 @@ function appHome(){
   const visits=Math.min(me.visitsDemo??3, 12), goal=me.tier==='Dusk'?12:24;
   const up=myBookings().filter(b=>['requested','confirmed','alternative'].includes(b.status)).slice(0,2);
   return `<div class="lf-pad">
-    <div class="hello"><h2>Good evening, ${esc(firstName(me.name))}</h2></div>
+    <div class="hello"><h2>${L('Good evening, '+esc(firstName(me.name)),'สวัสดีตอนค่ำ คุณ'+esc(firstName(me.name)))}</h2></div>
     <button class="mcard ${esc(me.tier)}" data-act="showqr" data-code="${esc(me.no)}" data-title="${esc(me.name)}" aria-label="Show membership QR">
       <div class="top"><span class="logo">sumnight<i></i></span><span class="tn">${esc(me.tier)}</span></div>
       <div class="bot"><div><div class="nm">${esc(me.name)}</div><div class="no num">${esc(me.no)}</div></div><span class="qr-mini">${qr(me.no,40)}</span></div>
@@ -1136,7 +1349,7 @@ function slotsFor(cat){ return cat==='dine'?['18:00','18:30','19:00','19:30','20
 function appBook(){
   const me=S.me;
   if(U.justBooked){ const b=S.bookings.find(x=>x.id===U.justBooked), v=V(b.venue);
-    return `<div class="lf-pad" style="padding-top:60px"><div class="done-ico">${ICON.check}</div><div class="eyebrow" style="color:var(--pink-ink)">Request sent · ${esc(b.ref)}</div><h2 style="margin-top:10px">${esc(v.name)} has your request.</h2><p class="lead">${when(b)} · ${party(b)}. The house usually confirms within ${SLA_MIN} minutes. We will message you here on LINE.</p>
+    return `<div class="lf-pad" style="padding-top:60px"><div class="done-ico">${ICON.check}</div><div class="eyebrow" style="color:var(--pink-ink)">Request sent · ${esc(b.ref)}</div><h2 style="margin-top:10px">${esc(v.name)} has your request.</h2><p class="lead">${when(b)} · ${party(b)}. ${L(`The house usually confirms within ${SLA_MIN} minutes. We will message you here on LINE.`,`ทางร้านมักยืนยันภายใน ${SLA_MIN} นาที เราจะแจ้งคุณทาง LINE`)}</p>
       <div style="display:grid;gap:10px;margin-top:28px"><button class="btn btn-ink" data-act="tab" data-t="trips">View my bookings</button><button class="btn btn-ghost-l" data-act="booknew">Book something else</button></div></div>`; }
   if(!U.bookVenue){
     const list=VENUES.filter(v=>v.cat===U.bookCat);
@@ -1149,9 +1362,9 @@ function appBook(){
   return `<div class="lf-pad">
     ${pic(v.id,800,'bhero')}
     <button class="backlink" data-act="unpick">‹ All ${CATS[v.cat].toLowerCase()}</button>
-    <h2>${v.name}</h2><p class="lead">${v.place}. ${v.line}</p>
+    <h2>${v.name}</h2><p class="lead">${tr(v.place)}. ${tr(v.line)}</p>
     <div class="lform">
-      <div class="fld"><span class="lbl">${stay?'Check-in':'Date'}</span><div class="dates">${Array.from({length:me.tier==='Dusk'?14:30},(_,i)=>{const d=day(i),dt=DT(d);return `<button class="${bf.date===d?'on':''}" data-act="bfdate" data-d="${d}">${i===0?'Today':dt.toLocaleDateString('en-GB',{weekday:'short'})}<b>${dt.getDate()}</b>${dt.toLocaleDateString('en-GB',{month:'short'})}</button>`}).join('')}</div></div>
+      <div class="fld"><span class="lbl">${stay?'Check-in':'Date'}</span><div class="dates">${Array.from({length:me.tier==='Dusk'?14:30},(_,i)=>{const d=day(i),dt=DT(d);return `<button class="${bf.date===d?'on':''}" data-act="bfdate" data-d="${d}">${i===0?'Today':dt.toLocaleDateString(LOC(),{weekday:'short'})}<b>${dt.getDate()}</b>${dt.toLocaleDateString(LOC(),{month:'short'})}</button>`}).join('')}</div></div>
       ${stay?`<div class="stepper"><span class="lbl" style="font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute-l)">Nights</span><div><button data-act="bfstep" data-k="nights" data-d="-1" aria-label="Fewer nights">−</button><b>${bf.nights}</b><button data-act="bfstep" data-k="nights" data-d="1" aria-label="More nights">+</button></div></div>`
         :`<div class="fld"><span class="lbl">Time</span><div class="times">${slotsFor(v.cat).map(t=>`<button class="${bf.time===t?'on':''}" data-act="bftime" data-t="${t}">${t}</button>`).join('')}</div></div>`}
       <div class="stepper"><span class="lbl" style="font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute-l)">Guests</span><div><button data-act="bfstep" data-k="guests" data-d="-1" aria-label="Fewer guests">−</button><b>${bf.guests}</b><button data-act="bfstep" data-k="guests" data-d="1" aria-label="More guests">+</button></div></div>
@@ -1224,7 +1437,7 @@ function adOverview(){
   const counts=days.map(d=>{const o={stay:0,dine:0,restore:0};bs.filter(b=>['confirmed','requested'].includes(b.status)&&b.date===d).forEach(b=>o[V(b.venue).cat]++);return o;});
   const max=Math.max(3,...counts.map(o=>o.stay+o.dine+o.restore));
   const today=bs.filter(b=>b.date===day(0)&&['confirmed','requested'].includes(b.status));
-  return `<div class="mh"><div><div class="eyebrow">${fmtLong(day(0))}</div><h1>${isC?'Good evening, Nicha':esc(v.name)}</h1></div>
+  return `<div class="mh"><div><div class="eyebrow">${fmtLong(day(0))}</div><h1>${isC?L('Good evening, Nicha','สวัสดีตอนค่ำ คุณณิชา'):esc(v.name)}</h1></div>
     <div class="r"><button class="btn btn-ink btn-sm" data-act="page" data-p="bookings">Open requests</button></div></div>
     <div class="kpis">
       <div class="kpi ${req.length?'alert':''}"><span class="eyebrow">Awaiting reply</span><b class="num">${req.length}</b><small>${late?`<span class="late">${late} past ${SLA_MIN}-min target</span>`:'All within target'}</small></div>
@@ -1240,7 +1453,7 @@ function adOverview(){
         <div class="chart">
           <div class="legend">${Object.keys(CATS).map(c=>`<span><i class="c-${c}"></i>${CATS[c]}</span>`).join('')}</div>
           <div class="bars">${counts.map(o=>{const t=o.stay+o.dine+o.restore;return `<div class="col">${['stay','dine','restore'].map(c=>o[c]?`<span class="c-${c}" style="height:${o[c]/max*100}%" title="${o[c]} ${CATS[c]}"></span>`:'').join('')}${t?`<em style="bottom:${t/max*100}%;top:auto;transform:none;margin-bottom:4px">${t}</em>`:''}</div>`}).join('')}</div>
-          <div class="blbl">${days.map((d,i)=>`<span>${i===0?'Today':DT(d).toLocaleDateString('en-GB',{weekday:'short'})}</span>`).join('')}</div>
+          <div class="blbl">${days.map((d,i)=>`<span>${i===0?'Today':DT(d).toLocaleDateString(LOC(),{weekday:'short'})}</span>`).join('')}</div>
         </div>
         <div class="panel-h" style="border-top:1px solid var(--line-l)"><h3>Today</h3><small>${today.length} booking${today.length===1?'':'s'}</small></div>
         ${today.length?today.map(b=>{const m=member(b.memberId),vv=V(b.venue);return `<button class="att" data-act="open" data-b="${b.id}"><span class="sw" style="background:${CATCOL[vv.cat]}"></span><div><b>${esc(b.time)} · ${esc(m.name)}</b><small>${esc(vv.name)} · ${party(b)}${b.voucher?' · voucher':''}</small></div><span class="pill st-${b.status}">${STATUS[b.status]}</span></button>`}).join(''):'<div class="empty">Nothing today.</div>'}
@@ -1267,13 +1480,13 @@ function adBookings(){
 function boardView(bs){
   const days=Array.from({length:7},(_,i)=>day(i));
   return `<div class="board">${days.map((d,i)=>{let l=bs.filter(b=>b.date===d&&['requested','confirmed','alternative','completed'].includes(b.status));if(U.bCat!=='all')l=l.filter(b=>V(b.venue).cat===U.bCat);l.sort((a,b)=>a.time.localeCompare(b.time));
-    return `<div class="bcol"><h5 class="${i===0?'today':''}"><span>${i===0?'Today':DT(d).toLocaleDateString('en-GB',{weekday:'short'})} ${DT(d).getDate()}</span><span>${l.length}</span></h5>${l.map(b=>{const m=member(b.memberId),v=V(b.venue);return `<button class="bcard ${b.status}" data-act="open" data-b="${b.id}"><b>${v.cat==='stay'?'Check-in':b.time} · ${esc(firstName(m.name))}</b><small>${esc(v.name)}</small><small>${party(b)} · ${STATUS[b.status]}</small></button>`}).join('')}</div>`}).join('')}</div>`;
+    return `<div class="bcol"><h5 class="${i===0?'today':''}"><span>${i===0?'Today':DT(d).toLocaleDateString(LOC(),{weekday:'short'})} ${DT(d).getDate()}</span><span>${l.length}</span></h5>${l.map(b=>{const m=member(b.memberId),v=V(b.venue);return `<button class="bcard ${b.status}" data-act="open" data-b="${b.id}"><b>${v.cat==='stay'?'Check-in':b.time} · ${esc(firstName(m.name))}</b><small>${esc(v.name)}</small><small>${party(b)} · ${STATUS[b.status]}</small></button>`}).join('')}</div>`}).join('')}</div>`;
 }
 function linePreview(b,kind){
   const m=member(b.memberId), v=V(b.venue), fn=firstName(m.name);
-  if(kind==='confirm') return `Dear Khun ${fn}, ${v.name} is delighted to confirm ${when(b)} for ${party(b)}. We look forward to welcoming you.`;
-  if(kind==='alt') return `Dear Khun ${fn}, ${v.name} is fully committed at that time. May we offer another time instead? Tap to accept.`;
-  return `Dear Khun ${fn}, we are sorry that ${v.name} cannot host you on ${fmtD(b.date)}. Your concierge will suggest another house.`;
+  if(kind==='confirm') return L(`Dear Khun ${fn}, ${v.name} is delighted to confirm ${when(b)} for ${party(b)}. We look forward to welcoming you.`,`เรียนคุณ${fn} ${v.name} ยินดียืนยันการจอง ${when(b)} สำหรับ ${party(b)} แล้วค่ะ เราตั้งตารอต้อนรับคุณ`);
+  if(kind==='alt') return L(`Dear Khun ${fn}, ${v.name} is fully committed at that time. May we offer another time instead? Tap to accept.`,`เรียนคุณ${fn} ${v.name} ขออภัยที่ช่วงเวลาดังกล่าวเต็มแล้ว ขอเสนอเวลาอื่นแทน แตะเพื่อยืนยันได้เลยค่ะ`);
+  return L(`Dear Khun ${fn}, we are sorry that ${v.name} cannot host you on ${fmtD(b.date)}. Your concierge will suggest another house.`,`เรียนคุณ${fn} ขออภัยที่ ${v.name} ไม่สามารถรับรองคุณได้ในวันที่ ${fmtD(b.date)} คอนเซียร์จของคุณจะแนะนำที่อื่นให้ค่ะ`);
 }
 function viewDrawer(){
   if(!U.drawer) return '';
@@ -1304,7 +1517,7 @@ function viewDrawer(){
       <div class="dsec"><h6>Member</h6><div class="mbox"><span class="av">${esc(initials(m.name))}</span><div><b>${esc(m.name)}${b.memberId==='me'?'<span class="me-tag">You</span>':''}</b><small><span class="tchip">${esc(m.tier)}</span> · ${esc(m.no)} · ${esc(m.city||'')}</small></div>${m.note?`<p>${esc(m.note)}</p>`:''}</div></div>
       <div class="dsec"><h6>Request</h6><dl class="dl"><dt>${stay?'Check-in':'Date'}</dt><dd>${fmtD(b.date)}</dd>${stay?`<dt>Nights</dt><dd>${b.nights}</dd>`:`<dt>Time</dt><dd>${b.time}</dd>`}<dt>Party</dt><dd>${party(b)}</dd><dt>Voucher</dt><dd>${b.voucher?`${esc(b.voucher.title)}<br><span class="num" style="color:var(--mute-l);font-size:12.5px">${esc(b.voucher.code)}</span>`:'—'}</dd>${b.note?`<dt>Note</dt><dd>${esc(b.note)}</dd>`:''}${b.conf?`<dt>Confirmation</dt><dd class="num">${esc(b.conf)}</dd>`:''}${b.reason?`<dt>Reason</dt><dd>${esc(b.reason)}</dd>`:''}</dl></div>
       ${acts?`<div class="dsec"><h6>Reply</h6>${acts}</div>`:''}
-      <div class="dsec"><h6>History</h6><ul class="hist">${b.history.slice().reverse().map(h=>`<li><span class="num">${new Date(h.ts).toLocaleDateString('en-GB',{day:'numeric',month:'short'})} ${hhmm(h.ts)}</span><span>${esc(h.text)}</span></li>`).join('')}</ul></div>
+      <div class="dsec"><h6>History</h6><ul class="hist">${b.history.slice().reverse().map(h=>`<li><span class="num">${new Date(h.ts).toLocaleDateString(LOC(),{day:'numeric',month:'short'})} ${hhmm(h.ts)}</span><span>${esc(h.text)}</span></li>`).join('')}</ul></div>
     </div></aside>`;
 }
 function adWaitlist(){
@@ -1345,7 +1558,7 @@ function adRedeem(){
     else { const vv=V(r.v.venue); const wrong=!isC&&r.v.venue!==U.role; const expd=r.v.exp<day(0);
       const bad=wrong||expd||r.v.status==='used';
       res=`<div class="rres ${bad?'bad':''}"><span class="eyebrow" style="color:${bad?'var(--bad)':'var(--ok)'}">${r.v.status==='used'?'Already redeemed':wrong?'Different house':expd?'Expired':'Valid'}</span><h4>${esc(r.v.title)}</h4>
-        <dl class="dl"><dt>Holder</dt><dd>${esc(r.v.holder)}</dd><dt>House</dt><dd>${esc(vv?vv.name:'Any')}</dd><dt>Valid until</dt><dd>${fmtLong(r.v.exp)}</dd><dt>Code</dt><dd class="num">${esc(r.v.code)}</dd>${r.v.usedAt?`<dt>Redeemed</dt><dd>${new Date(r.v.usedAt).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</dd>`:''}</dl>
+        <dl class="dl"><dt>Holder</dt><dd>${esc(r.v.holder)}</dd><dt>House</dt><dd>${esc(vv?vv.name:'Any')}</dd><dt>Valid until</dt><dd>${fmtLong(r.v.exp)}</dd><dt>Code</dt><dd class="num">${esc(r.v.code)}</dd>${r.v.usedAt?`<dt>Redeemed</dt><dd>${new Date(r.v.usedAt).toLocaleString(LOC(),{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</dd>`:''}</dl>
         ${bad?'':`<button class="btn btn-ink" data-act="doredeem" data-c="${esc(r.v.code)}">Redeem now</button>`}</div>`; }
   }
   return `<div class="mh"><div><div class="eyebrow">${isC?'All houses':esc(V(U.role).name)}</div><h1>Redeem voucher</h1></div></div>
@@ -1367,6 +1580,9 @@ function setVoucher(code,status){ [S.vouchers, S.me?S.me.vouchers:[]].forEach(ar
    Events
    ========================================================= */
 const ACT = {
+  lang(){ LANG=LANG==='th'?'en':'th'; try{localStorage.setItem('sumnight-lang',LANG);}catch(e){} document.documentElement.lang=LANG; render(); },
+  fontpick(){ U.fontpop=!U.fontpop; renderFontPop(); },
+  setfont(t){ applyFont(t.dataset.f); if(LANG!=='th'){ LANG='th'; try{localStorage.setItem('sumnight-lang','th');}catch(e){} document.documentElement.lang='th'; render(); } else renderFontPop(); },
   reset(){ try{localStorage.removeItem(KEY);}catch(e){} S=seed(); Object.assign(U,{phone:'chat',sheet:false,tab:'home',bookVenue:null,bf:null,qr:false,justBooked:null,page:'overview',role:'concierge',bStatus:'requested',bCat:'all',bView:'list',q:'',drawer:null,dmode:null,redeem:null}); save(); ctoast('Demo reset','All sample data restored.'); go('home'); },
   scroll(t){ const el=document.getElementById(t.dataset.to); if(el) el.scrollIntoView({behavior:'smooth'}); if(t.dataset.tier){ const s=$('#f-tier'); if(s) s.value=t.dataset.tier; } },
   chip(t){ t.classList.toggle('on'); },
@@ -1399,7 +1615,7 @@ const ACT = {
     const id='b'+(++S.seq);
     const b={id,ref:'SNB-'+(2400+S.seq),memberId:'me',venue:v.id,date:bf.date,time:v.cat==='stay'?'15:00':bf.time,nights:v.cat==='stay'?bf.nights:1,guests:bf.guests,status:'requested',voucher:vc?{code:vc.code,title:vc.title}:null,note:bf.note,created:Date.now(),conf:'',altDate:'',altTime:'',reason:'',history:[{ts:Date.now(),text:'Requested in LINE'}]};
     S.bookings.push(b); if(vc) setVoucher(vc.code,'reserved');
-    pushChat({from:'oa',k:'text',text:`Request received · ${b.ref}\n${v.name}, ${when(b)}, ${party(b)}.\nThe house will reply within ${SLA_MIN} minutes.`});
+    pushChat({from:'oa',k:'text',key:'received',bid:b.id});
     save(); U.justBooked=id; U.bookVenue=null; render(); ctoast('New booking request', `${v.name} · ${when(b)}`); },
   acceptalt(t){ const b=S.bookings.find(x=>x.id===t.dataset.b); b.date=b.altDate; b.time=b.altTime||b.time; b.status='confirmed'; b.conf=b.conf||(b.venue.slice(0,3).toUpperCase()+'-'+Math.floor(10000+Math.random()*89999)); b.history.push({ts:Date.now(),text:'Member accepted the new time · '+b.conf}); pushChat({from:'oa',k:'flex',kind:'booking',bid:b.id,state:'confirmed'}); save(); render(); },
   declinealt(t){ const b=S.bookings.find(x=>x.id===t.dataset.b); b.status='cancelled'; b.history.push({ts:Date.now(),text:'Member declined the new time'}); if(b.voucher) setVoucher(b.voucher.code,'active'); save(); render(); },
@@ -1432,7 +1648,7 @@ const ACT = {
     S.members.push({id:'m'+(++S.seq),name:w.name,tier,no:'SN-0'+n,since:day(0),city:w.city,visits:0,note:''}); save(); render(); ctoast(`${w.name} approved · ${tier}`,'Card and vouchers sent on LINE'); },
   fillcode(t){ U.redeem={q:t.dataset.c,v:findVoucher(t.dataset.c)}; render(); },
   doredeem(t){ setVoucher(t.dataset.c,'used'); const b=S.bookings.find(x=>x.voucher&&x.voucher.code===t.dataset.c&&['confirmed','requested'].includes(x.status)); if(b) b.history.push({ts:Date.now(),text:'Voucher redeemed at the house'});
-    if(S.me&&S.me.vouchers.some(v=>v.code===t.dataset.c)){ const vc=S.me.vouchers.find(v=>v.code===t.dataset.c); pushChat({from:'oa',k:'text',text:`Voucher redeemed · ${vc.title}\nThank you for visiting. We hope it was a lovely evening.`},`Voucher redeemed: ${vc.title}`); }
+    if(S.me&&S.me.vouchers.some(v=>v.code===t.dataset.c)){ const vc=S.me.vouchers.find(v=>v.code===t.dataset.c); pushChat({from:'oa',k:'text',key:'redeemed',title:vc.title},`Voucher redeemed: ${vc.title}`); }
     save(); U.redeem={q:t.dataset.c,v:findVoucher(t.dataset.c)}; render(); ctoast('Voucher redeemed', t.dataset.c); }
 };
 function findVoucher(code){ code=String(code||'').trim().toUpperCase(); return S.vouchers.find(v=>v.code===code) || (S.me&&S.me.vouchers.find(v=>v.code===code)) || null; }
@@ -1452,7 +1668,7 @@ document.addEventListener('submit',e=>{
     if(!$('#r-pdpa').checked){ $('#r-err').textContent='Consent is needed so houses can receive your preferences.'; return; }
     const me=S.me; me.name=$('#r-name').value.trim()||me.name; me.phone=$('#r-phone').value.trim(); me.birthday=$('#r-bday').value; me.dietary=$('#r-diet').value; me.occasion=$('#r-occ').value.trim();
     me.interests=$$('#r-int .chip.on').map(c=>c.dataset.v); me.stage='registered';
-    pushChat({from:'oa',k:'text',text:`ขอบคุณค่ะ คุณ${firstName(me.name)}\nYour profile is complete. The committee will review your application and reply here.`});
+    pushChat({from:'oa',k:'text',key:'profile'});
     save(); U.phone='pending'; render(); return; }
   if(e.target.id==='rform'){ e.preventDefault(); const q=$('#r-code').value; U.redeem={q,v:findVoucher(q)}; render(); }
 });
@@ -1462,7 +1678,7 @@ document.addEventListener('input',e=>{
   if(k==='q'){ U.q=e.target.value; U._focusQ=true; render(); U._focusQ=false; }
 });
 document.addEventListener('change',e=>{ if(e.target.dataset.change==='role'){ U.role=e.target.value; U.drawer=null; U.redeem=null; render(); } });
-document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ if(U.drawer) ACT.closedrawer(); else if($('.modal-bg')) $('#overlay').innerHTML=''; else if(U.qr) ACT.closeqr(); }});
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ if(U.fontpop) ACT.fontpick(); else if(U.drawer) ACT.closedrawer(); else if($('.modal-bg')) $('#overlay').innerHTML=''; else if(U.qr) ACT.closeqr(); }});
 setInterval(()=>{ if(route()==='admin' && !U.drawer && !(document.activeElement&&/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName))) render(); },60000);
 
 render();
