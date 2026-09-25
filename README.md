@@ -17,7 +17,7 @@ State is kept in the browser's `localStorage`, so two tabs on the same device st
 
 **Thai / English:** toggle with **ไทย / EN** in the demo bar or the TH button in the site nav.
 **Thai fonts:** the **ก Aa** button opens a picker with six Google Fonts pairings
-(Trirong + Anuphan default, Noto Serif Thai + IBM Plex Thai Looped, Pridi + Sarabun, Bai Jamjuree, Prompt, Kanit).
+(Bai Jamjuree + Anuphan default — same pairing as the GLOW SOCIETY page — plus Trirong + Anuphan, Noto Serif Thai + IBM Plex Thai Looped, Pridi + Sarabun, Prompt, Kanit).
 Language and font choices are remembered in the browser.
 
 **Photos:** each slot tries `demo/img/<name>.jpg` first, then Unsplash, then Pexels (see `demo/img/README.md`).

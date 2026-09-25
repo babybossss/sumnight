@@ -19,7 +19,7 @@
   --ok:#4F8A62; --ok-wash:#E1EEE4; --warn:#B57A22; --warn-wash:#F6EAD5;
   --bad:#B14B45; --bad-wash:#F5DEDC; --info:#4E6A9E; --info-wash:#E0E7F3;
   --line-green:#06C755;
-  --th-head:"Trirong"; --th-body:"Anuphan";
+  --th-head:"Bai Jamjuree"; --th-body:"Anuphan";
   --serif:"Bodoni Moda",var(--th-head),"Didot","Bodoni 72",Georgia,serif;
   --sans:"Jost",var(--th-body),"Noto Sans Thai","Helvetica Neue",Arial,sans-serif;
   --gut:clamp(16px,5vw,72px);
@@ -686,18 +686,18 @@ const L=(en,th)=>LANG==='th'?th:en;
 const LOC=()=>LANG==='th'?'th-TH':'en-GB';
 
 const THFONTS=[
+  {id:'baianu',name:'Bai Jamjuree + Anuphan',note:'คู่เดียวกับ GLOW SOCIETY ที่ลูกพี่ใช้ หัวเรื่องเหลี่ยมมีคาแรกเตอร์ เนื้อความอ่านง่าย',head:'Bai Jamjuree',body:'Anuphan',q:'family=Bai+Jamjuree:wght@300;400;500;600&family=Anuphan:wght@300;400;500'},
   {id:'trirong',name:'Trirong + Anuphan',note:'หรูแบบคลาสสิก หัวเรื่องมีหัว เนื้อความทันสมัย',head:'Trirong',body:'Anuphan',q:'family=Trirong:wght@300;400;500&family=Anuphan:wght@300;400;500'},
   {id:'noto',name:'Noto Serif Thai + IBM Plex Thai Looped',note:'แบบนิตยสาร อ่านง่าย มีหัวทั้งคู่',head:'Noto Serif Thai',body:'IBM Plex Sans Thai Looped',q:'family=Noto+Serif+Thai:wght@300;400;500&family=IBM+Plex+Sans+Thai+Looped:wght@300;400;500'},
   {id:'pridi',name:'Pridi + Sarabun',note:'อบอุ่น เป็นทางการ แบบเอกสารไทย',head:'Pridi',body:'Sarabun',q:'family=Pridi:wght@300;400&family=Sarabun:wght@300;400;500'},
-  {id:'bai',name:'Bai Jamjuree',note:'โมเดิร์น เรียบ ดูแพง ไม่มีหัว',head:'Bai Jamjuree',body:'Bai Jamjuree',q:'family=Bai+Jamjuree:wght@300;400;500'},
   {id:'prompt',name:'Prompt',note:'โมเดิร์น กลม ใช้กันมากในแบรนด์ไทย',head:'Prompt',body:'Prompt',q:'family=Prompt:wght@300;400;500'},
   {id:'kanit',name:'Kanit',note:'หนักแน่น ทันสมัย เหมาะกับโซเชียล',head:'Kanit',body:'Kanit',q:'family=Kanit:wght@300;400;500'}
 ];
-let THFONT=(()=>{try{return localStorage.getItem('sumnight-thfont')||'trirong';}catch(e){return 'trirong';}})();
+let THFONT=(()=>{try{return localStorage.getItem('sumnight-thfont-v2')||'baianu';}catch(e){return 'baianu';}})();
 function loadFont(f){ if(document.getElementById('tf-'+f.id)) return; const l=document.createElement('link'); l.rel='stylesheet'; l.id='tf-'+f.id; l.href='https://fonts.googleapis.com/css2?'+f.q+'&display=swap'; document.head.appendChild(l); }
 function applyFont(id){ const f=THFONTS.find(x=>x.id===id)||THFONTS[0]; THFONT=f.id; loadFont(f);
   document.documentElement.style.setProperty('--th-head',`"${f.head}"`); document.documentElement.style.setProperty('--th-body',`"${f.body}"`);
-  try{localStorage.setItem('sumnight-thfont',f.id);}catch(e){} }
+  try{localStorage.setItem('sumnight-thfont-v2',f.id);}catch(e){} }
 
 /* ---------- Thai translation ----------
    Static interface text is translated from DICT as it is rendered; strings
